@@ -46,17 +46,17 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local colors = {
-	bg_dark = hsl("#202126"),
-	bg = hsl("#27282d"),
-	bg2 = hsl("#363636"),
+	bg_dark = hsl("#212126"),
+	bg = hsl("#27272d"),
+	bg2 = hsl("#303038"),
 	fg = hsl("#bcafcc"),
 	gray = hsl("#595360"),
 	purple = hsl("#9379f2"),
 	red = hsl("#f2658d"),
-	green = hsl("#82d66b"),
+	green = hsl("#87d173"),
 	blue = hsl("#8695e8"),
 	orange = hsl("#e09e64"),
-	yellow = hsl("#d8d85b"),
+	yellow = hsl("#d8d86c"),
 	turquoise = hsl("#7cbfb7"),
 	cyan = hsl("#68b5d1"),
 	none = "NONE",
@@ -348,7 +348,7 @@ local theme = lush(function(injected_functions)
 		Added               { fg = colors.green, ctermfg = 10 } ,
 		Changed               { fg = colors.cyan, ctermfg = 14 } ,
 
-
+	-- Additional Treesitter and lsp
 		sym"@variable.member"          {  fg = colorGroups.group4 }, -- Identifier
 		sym"@variable.parameter"          {  fg = colorGroups.group5 }, -- Identifier
 		sym"@tag.builtin"          {  fg = colorGroups.group5 }, -- Identifier
@@ -359,7 +359,6 @@ local theme = lush(function(injected_functions)
 		sym"@punctuation.bracket"       { fg = colorGroups.group9 }, -- Delimiter
 		sym"@punctuation.delimiter"       { fg = colorGroups.group9 }, -- Delimiter
 		sym"@constant.javascript"          { fg = colorGroups.group6 }, -- Constant
-
 		sym"@lsp"          { fg = nil }, -- Constant
 		sym"@lsp.type.variable"          { fg = nil }, -- Constant
 
