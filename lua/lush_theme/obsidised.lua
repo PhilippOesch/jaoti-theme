@@ -46,15 +46,15 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local colors = {
-	bg_dark = hsl("#252326"),
-	bg = hsl("#2a272b"),
+	bg_dark = hsl("#212326"),
+	bg = hsl("#282b2d"),
 	bg2 = hsl("#363636"),
-	fg = hsl("#afa2bf"),
-	gray = hsl("#55505e"),
-	purple = hsl("#A58AF9"),
+	fg = hsl("#b0a4bf"),
+	gray = hsl("#595360"),
+	purple = hsl("#9385f2"),
 	red = hsl("#f2658d"),
 	green = hsl("#82d66b"),
-	blue = hsl("#8e9adb"),
+	blue = hsl("#8997e5"),
 	orange = hsl("#e09e64"),
 	yellow = hsl("#d8d85b"),
 	turquoise = hsl("#7cbfb7"),
@@ -72,18 +72,18 @@ colors.gray_dark = colors.gray.mix(colors.bg_dark, 30)
 colors.green_dark = colors.green.mix(colors.bg_dark, 80)
 colors.yellow_dark = colors.yellow.mix(colors.bg_dark, 50)
 colors.green2 = colors.green.mix(colors.cyan, 30).desaturate(20)
-colors.red_dark = colors.red.mix(colors.bg_dark, 70)
+colors.red_dark = colors.red.mix(colors.bg_dark, 80)
 colors.red2 = colors.red.desaturate(40).lighten(20)
 colors.turquoise_dark = colors.turquoise.mix(colors.bg_dark, 80)
 colors.cyan_dark = colors.cyan.mix(colors.bg_dark, 70)
 colors.orange_light = colors.orange.mix(colors.fg, 40)
-colors.orange_dark = colors.orange.mix(colors.bg_dark, 70)
+colors.orange_dark = colors.orange.mix(colors.bg_dark, 80)
 
 -- group1: keywords, tag
 -- group2: functions
 -- group3: variable
 -- group4: variable.member, @properties
--- group5: variable.parameter, tag.builtin
+-- group5: variable.parameter, tag.builtin, escape
 -- group6: contants
 -- group7: strings
 -- group8: tag attribute, type
@@ -255,11 +255,11 @@ local theme = lush(function(injected_functions)
 
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 		--
-		DiagnosticError            { fg = colors.red } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticWarn             { fg= colors.orange } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticInfo             { fg = colors.turquoise } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticHint             { fg = colors.cyan } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticOk               { fg = colors.green } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticError            { fg = colors.red, bg = colors.red_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticWarn             { fg= colors.orange, bg = colors.orange_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticInfo             { fg = colors.turquoise, bg = colors.turquoise_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticHint             { fg = colors.cyan, bg = colors.cyan_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticOk               { fg = colors.green, bg = colors.green_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		-- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
 		-- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
 		-- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -312,7 +312,7 @@ local theme = lush(function(injected_functions)
 		-- -- sym"@define"            { }, -- Define
 		-- -- sym"@macro"             { }, -- Macro
 		-- -- sym"@string"            { }, -- String
-		-- -- sym"@string.escape"     { }, -- SpecialChar
+		sym"@string.escape"     { fg = colorGroups.group5 }, -- SpecialChar
 		-- -- sym"@string.special"    { }, -- SpecialChar
 		-- -- sym"@character"         { }, -- Character
 		-- -- sym"@character.special" { }, -- SpecialChar
