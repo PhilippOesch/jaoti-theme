@@ -46,15 +46,15 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local colors = {
-	bg_dark = hsl("#212326"),
-	bg = hsl("#282b2d"),
+	bg_dark = hsl("#202126"),
+	bg = hsl("#27282d"),
 	bg2 = hsl("#363636"),
-	fg = hsl("#b0a4bf"),
+	fg = hsl("#bcafcc"),
 	gray = hsl("#595360"),
-	purple = hsl("#9385f2"),
+	purple = hsl("#9379f2"),
 	red = hsl("#f2658d"),
 	green = hsl("#82d66b"),
-	blue = hsl("#8997e5"),
+	blue = hsl("#8695e8"),
 	orange = hsl("#e09e64"),
 	yellow = hsl("#d8d85b"),
 	turquoise = hsl("#7cbfb7"),
@@ -71,15 +71,15 @@ colors.gray_dark = colors.gray.mix(colors.bg_dark, 30)
 -- colors.green_light = colors.green.mix(colors.fg, 30)
 colors.green_dark = colors.green.mix(colors.bg_dark, 80)
 colors.yellow_dark = colors.yellow.mix(colors.bg_dark, 50)
-colors.green2 = colors.green.mix(colors.cyan, 30).desaturate(20)
+colors.green2 = colors.green.saturate(20).mix(colors.yellow, 20).desaturate(40)
 colors.red_dark = colors.red.mix(colors.bg_dark, 80)
 colors.red2 = colors.red.desaturate(40).lighten(20)
 colors.turquoise_dark = colors.turquoise.mix(colors.bg_dark, 80)
-colors.cyan_dark = colors.cyan.mix(colors.bg_dark, 70)
+colors.cyan_dark = colors.cyan.mix(colors.bg_dark, 80)
 colors.orange_light = colors.orange.mix(colors.fg, 40)
 colors.orange_dark = colors.orange.mix(colors.bg_dark, 80)
 
--- group1: keywords, tag
+-- group1: keywords, tag, exception
 -- group2: functions
 -- group3: variable
 -- group4: variable.member, @properties
@@ -90,7 +90,6 @@ colors.orange_dark = colors.orange.mix(colors.bg_dark, 80)
 -- group8: brackest
 
 local colorGroups = {
---- group1: keywords, tag
   group1 = colors.pink,
   group2 = colors.cyan,
   group3 = colors.fg,
@@ -209,18 +208,18 @@ local theme = lush(function(injected_functions)
 		Identifier     { fg = colorGroups.cyan }, -- (*) Any variable name
 		Function       { fg = colorGroups.group2 }, --   Function name (also: methods for classes)
 		--
-		-- Statement      { fg = colors.pink  }, -- (*) Any statement
+		Statement      { fg = colorGroups.group1  }, -- (*) Any statement
 		-- -- Conditional    { }, --   if, then, else, endif, switch, etc.
 		-- -- Repeat         { }, --   for, do, while, etc.
 		-- -- Label          { }, --   case, default, etc.
-		-- Operator       { fg = colors.turquoise }, --   "sizeof", "+", "*", etc.
+		Operator       { fg = colors.fg }, --   "sizeof", "+", "*", etc.
 		Keyword        { fg = colorGroups.group1 }, --   any other keyword
-		-- -- Exception      {  fg = colors.purple }, --   try, catch, throw
+		Exception      {  fg = colorGroups.group1 }, --   try, catch, throw
 		--
-		-- -- PreProc        { }, -- (*) Generic Preprocessor
-		-- -- Include        { }, --   Preprocessor #include
-		-- -- Define         { }, --   Preprocessor #define
-		-- -- Macro          { }, --   Same as Define
+		PreProc        { fg = colors.fg }, -- (*) Generic Preprocessor
+		-- Include        { }, --   Preprocessor #include
+		-- Define         { }, --   Preprocessor #define
+		-- Macro          { }, --   Same as Define
 		-- -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 		--
 		Type           { fg = colorGroups.group8 }, -- (*) int, long, char, etc.
