@@ -46,23 +46,24 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local colors = {
-	bg_dark = hsl("#252426"),
-	bg = hsl("#2c2b2d"),
+	bg_dark = hsl("#252326"),
+	bg = hsl("#2a272b"),
 	bg2 = hsl("#363636"),
-	fg = hsl("#dfdae5"),
-	gray = hsl("#6f6d72"),
+	fg = hsl("#afa2bf"),
+	gray = hsl("#55505e"),
 	purple = hsl("#A58AF9"),
 	red = hsl("#f2658d"),
 	green = hsl("#82d66b"),
-	blue = hsl("#6fa5f7"),
-	orange = hsl("#f29e54"),
+	blue = hsl("#8e9adb"),
+	orange = hsl("#e09e64"),
 	yellow = hsl("#d8d85b"),
-	turquoise = hsl("#51ccbd"),
-	cyan = hsl("#77c5d8"),
+	turquoise = hsl("#7cbfb7"),
+	cyan = hsl("#68b5d1"),
 	none = "NONE",
-    pink = hsl('#f291f2')
+    pink = hsl('#d891d8')
 }
 
+-- colors.light_blue = colors.cyan.darken(20).desaturate(40).lighten(30)
 colors.purple_dark = colors.purple.mix(colors.bg_dark, 50)
 colors.blue_dark = colors.blue.mix(colors.bg_dark, 30)
 colors.gray_light = colors.gray.mix(colors.fg, 50)
@@ -70,7 +71,7 @@ colors.gray_dark = colors.gray.mix(colors.bg_dark, 30)
 -- colors.green_light = colors.green.mix(colors.fg, 30)
 colors.green_dark = colors.green.mix(colors.bg_dark, 80)
 colors.yellow_dark = colors.yellow.mix(colors.bg_dark, 50)
-colors.green2 = colors.green.mix(colors.orange, 20).desaturate(20).darken(10)
+colors.green2 = colors.green.mix(colors.cyan, 30).desaturate(20)
 colors.red_dark = colors.red.mix(colors.bg_dark, 70)
 colors.red2 = colors.red.desaturate(40).lighten(20)
 colors.turquoise_dark = colors.turquoise.mix(colors.bg_dark, 80)
@@ -125,7 +126,7 @@ local theme = lush(function(injected_functions)
 		CursorIM{ bg = colors.fg, fg = colors.bg_dark }, -- Like Cursor, but used when in IME mode |CursorIM|
 		-- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		-- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-		Directory{ fg = colors.cyan }, -- Directory names (and other special names in listings)
+		Directory{ fg = colors.turquoise }, -- Directory names (and other special names in listings)
 		DiffAdd{ fg = colors.fg, bg = colors.green_dark }, -- Diff mode: Added line |diff.txt|
 		DiffChange{ bg = colors.cyan_dark, fg = colors.fg }, -- Diff mode: Changed line |diff.txt|
 		DiffDelete{ bg = colors.red_dark, fg = colors.fg }, -- Diff mode: Deleted line |diff.txt|
@@ -196,7 +197,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- Uncomment and edit if you want more specific syntax highlighting.
 
-		Comment        { fg = colors.gray}, -- Any comment
+		Comment        { fg = colors.gray, italic = true}, -- Any comment
 		--
 		Constant       { fg = colorGroups.group6 }, -- (*) Any constant
 		String         { fg = colorGroups.group7 }, --   A string constant: "this is a string"
@@ -236,8 +237,8 @@ local theme = lush(function(injected_functions)
 		--
 		-- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
 		-- -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-		-- Error          { fg = colors.red}, -- Any erroneous construct
-		-- Todo           { bg = colors.yellow, fg = colors.bg_dark }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Error          { fg = colors.red, bg = colors.red_dark}, -- Any erroneous construct
+		Todo           { bg = colors.yellow, fg = colors.bg_dark }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 		-- These groups are for the native LSP client and diagnostic system. Some
 		-- other LSP clients may use these groups, or use their own. Consult your
