@@ -120,7 +120,7 @@ local theme = lush(function(injected_functions)
 		ColorColumn{ bg = colors.bg }, -- Columns set with 'colorcolumn'
 		-- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor{ bg = colors.fg, fg = colors.bg_dark }, -- Character under the cursor
-		CurSearch{ bg = colors.yellow_dark }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+		CurSearch{ bg = colors.cyan, fg = colors.bg_dark }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
 		lCursor{ bg = colors.fg, fg = colors.bg_dark }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 		CursorIM{ bg = colors.fg, fg = colors.bg_dark }, -- Like Cursor, but used when in IME mode |CursorIM|
 		-- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -138,7 +138,7 @@ local theme = lush(function(injected_functions)
 		-- Folded         { }, -- Line used for closed folds
 		-- FoldColumn     { }, -- 'foldcolumn'
 		-- SignColumn     { }, -- Column where |signs| are displayed
-		-- IncSearch      { bg = colors.purple_dark }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+		IncSearch      { bg = colors.cyan, fg = colors.bg_dark }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		Substitute{ bg = colors.orange_dark }, -- |:substitute| replacement text highlighting
 		LineNr{ fg = colors.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		-- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
@@ -146,7 +146,7 @@ local theme = lush(function(injected_functions)
 		CursorLineNr{ fg = colors.turquoise }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		-- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
 		-- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-		-- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		MatchParen     { fg = colors.cyan }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		ModeMsg{ fg = colors.green }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		-- MsgArea        { }, -- Area for messages and cmdline
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -167,7 +167,7 @@ local theme = lush(function(injected_functions)
 		PmenuThumb{ bg = colors.gray }, -- Popup menu: Thumb of the scrollbar.
 		Question{ fg = colors.turquoise }, -- |hit-enter| prompt and yes/no questions
 		QuickFixLine{ fg = colors.turquoise }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		Search{ bg = colors.yellow_dark }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+		Search{ bg = colors.pink, fg = colors.bg_dark }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		-- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		-- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		-- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
