@@ -82,11 +82,11 @@ colors.orange_dark = colors.orange.mix(colors.bg_dark, 80)
 -- group1: keywords, tag, exception
 -- group2: functions
 -- group3: variable
--- group4: variable.member, @properties
+-- group4: variable.member, @property
 -- group5: variable.parameter, tag.builtin, escape
 -- group6: contants
 -- group7: strings
--- group8: tag attribute, type
+-- group8: tag attribute, type, module
 -- group8: brackest
 
 local colorGroups = {
@@ -349,6 +349,8 @@ local theme = lush(function(injected_functions)
 		Changed{ fg = colors.cyan, ctermfg = 14 },
 
 		-- Additional Treesitter and lsp
+		--
+		sym("@module")({ fg = colorGroups.group8 }), -- Identifier
 		sym("@variable.member")({ fg = colorGroups.group4 }), -- Identifier
 		sym("@variable.parameter")({ fg = colorGroups.group5 }), -- Identifier
 		sym("@tag.builtin")({ fg = colorGroups.group5 }), -- Identifier
@@ -363,13 +365,31 @@ local theme = lush(function(injected_functions)
 		sym("@lsp.type.variable")({ fg = nil }), -- Constant
 
 		-- Lazygit
-		SnacksPickerDir{fg = colors.gray_dark}
+		SnacksPickerDir{fg = colors.gray_dark},
+
 	}
 end)
 
 local linkingTheme = lush.extends({ theme }).with(function()
 	return {
 		SnacksPicker({theme.Normal}),
+		LspKindProperty({theme["@property"]}),
+		LspKindVariable({theme["@variable"]}),
+		LspKindModule({theme["@module"]}),
+		LspKindFunction({theme.Function}),
+		LspKindField(theme["@variable.member"]),
+		LspKindKey(theme["@variable.member"]),
+	}
+end)
+
+local blinkLinkingTheme = lush.extends({ linkingTheme }).with(function()
+	return {
+		BlinkCmpKindProperty({linkingTheme.LspKindProperty}),
+		BlinkCmpKindVariable({linkingTheme.LspKindVariable}),
+		BlinkCmpKindModule({linkingTheme.LspKindModule}),
+		BlinkCmpKindFunction({linkingTheme.LspKindFunction}),
+		BlinkCmpKindField({linkingTheme.LspKindField}),
+		BlinkCmpKindKey(linkingTheme.LspKindKey),
 	}
 end)
 
@@ -392,6 +412,6 @@ vim.g.terminal_color_14 = colors.cyan.hex
 vim.g.terminal_color_15 = colors.fg.hex
 
 -- Return our parsed theme for extension or use elsewhere.
-return linkingTheme
+return blinkLinkingTheme
 
 -- vi:nowrap
