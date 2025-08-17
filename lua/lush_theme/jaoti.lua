@@ -117,76 +117,76 @@ local theme = lush(function(injected_functions)
 		--
 		-- See :h highlight-groups
 		--
-		ColorColumn({ bg = colors.bg }), -- Columns set with 'colorcolumn'
+		ColorColumn{ bg = colors.bg }, -- Columns set with 'colorcolumn'
 		-- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor({ bg = colors.fg, fg = colors.bg_dark }), -- Character under the cursor
-		CurSearch({ bg = colors.yellow_dark }), -- Highlighting a search pattern under the cursor (see 'hlsearch')
-		lCursor({ bg = colors.fg, fg = colors.bg_dark }), -- Character under the cursor when |language-mapping| is used (see 'guicursor')
-		CursorIM({ bg = colors.fg, fg = colors.bg_dark }), -- Like Cursor, but used when in IME mode |CursorIM|
+		Cursor{ bg = colors.fg, fg = colors.bg_dark }, -- Character under the cursor
+		CurSearch{ bg = colors.yellow_dark }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+		lCursor{ bg = colors.fg, fg = colors.bg_dark }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+		CursorIM{ bg = colors.fg, fg = colors.bg_dark }, -- Like Cursor, but used when in IME mode |CursorIM|
 		-- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		-- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-		Directory({ fg = colors.blue }), -- Directory names (and other special names in listings)
-		DiffAdd({ fg = colors.fg, bg = colors.green_dark }), -- Diff mode: Added line |diff.txt|
-		DiffChange({ bg = colors.cyan_dark, fg = colors.fg }), -- Diff mode: Changed line |diff.txt|
-		DiffDelete({ bg = colors.red_dark, fg = colors.fg }), -- Diff mode: Deleted line |diff.txt|
-		DiffText({ bg = colors.cyan_dark, fg = colors.fg }), -- Diff mode: Changed text within a changed line |diff.txt|
+		Directory{ fg = colors.blue }, -- Directory names (and other special names in listings)
+		DiffAdd{ fg = colors.fg, bg = colors.green_dark }, -- Diff mode: Added line |diff.txt|
+		DiffChange{ bg = colors.cyan_dark, fg = colors.fg }, -- Diff mode: Changed line |diff.txt|
+		DiffDelete{ bg = colors.red_dark, fg = colors.fg }, -- Diff mode: Deleted line |diff.txt|
+		DiffText{ bg = colors.cyan_dark, fg = colors.fg }, -- Diff mode: Changed text within a changed line |diff.txt|
 		-- EndOfBuffer    {  }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
-		TermCursor({}), -- Cursor in a focused terminal
+		TermCursor{}, -- Cursor in a focused terminal
 		-- TermCursorNC   { }, -- Cursor in an unfocused terminal
-		ErrorMsg({ fg = colors.red, bg = colors.red_dark }), -- Error messages on the command line
-		VertSplit({ bg = colors.bg, fg = colors.bg2 }), -- Column separating vertically split windows
+		ErrorMsg{ fg = colors.red, bg = colors.red_dark }, -- Error messages on the command line
+		VertSplit{ bg = colors.bg, fg = colors.bg2 }, -- Column separating vertically split windows
 		-- Folded         { }, -- Line used for closed folds
 		-- FoldColumn     { }, -- 'foldcolumn'
 		-- SignColumn     { }, -- Column where |signs| are displayed
 		-- IncSearch      { bg = colors.purple_dark }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		Substitute({ bg = colors.orange_dark }), -- |:substitute| replacement text highlighting
-		LineNr({ fg = colors.gray }), -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+		Substitute{ bg = colors.orange_dark }, -- |:substitute| replacement text highlighting
+		LineNr{ fg = colors.gray }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		-- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
 		-- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-		CursorLineNr({ fg = colors.turquoise }), -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+		CursorLineNr{ fg = colors.turquoise }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		-- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
 		-- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
 		-- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg({ fg = colors.green }), -- 'showmode' message (e.g., "-- INSERT -- ")
+		ModeMsg{ fg = colors.green }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		-- MsgArea        { }, -- Area for messages and cmdline
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-		MoreMsg({ fg = colors.turquoise }), -- |more-prompt|
-		NonText({ fg = colors.bg2 }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		Normal({ bg = colors.bg_dark, fg = colors.fg }), -- Normal text
-		NormalFloat({ bg = colors.bg, fg = colors.fg }), -- Normal text in floating windows.
-		FloatBorder({ fg = colors.bg2 }), -- Border of floating windows.
-		FloatTitle({ bold = true }), -- Title of floating windows.
+		MoreMsg{ fg = colors.turquoise }, -- |more-prompt|
+		NonText{ fg = colors.bg2 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		Normal{ bg = colors.bg_dark, fg = colors.fg }, -- Normal text
+		NormalFloat{ bg = colors.bg, fg = colors.fg }, -- Normal text in floating windows.
+		FloatBorder{ fg = colors.gray_dark }, -- Border of floating windows.
+		FloatTitle{ bold = true }, -- Title of floating windows.
 		-- NormalNC       { }, -- normal text in non-current windows
 		-- Pmenu          { }, -- Popup menu: Normal item.
-		PmenuSel({ bg = colors.gray_light, fg = colors.bg_dark }), -- Popup menu: Selected item.
+		PmenuSel{ bg = colors.gray_light, fg = colors.bg_dark }, -- Popup menu: Selected item.
 		-- PmenuKind      { }, -- Popup menu: Normal item "kind"
 		-- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
 		-- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
 		-- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
 		-- PmenuSbar      { }, -- Popup menu: Scrollbar.
-		PmenuThumb({ bg = colors.gray }), -- Popup menu: Thumb of the scrollbar.
-		Question({ fg = colors.turquoise }), -- |hit-enter| prompt and yes/no questions
-		QuickFixLine({ fg = colors.turquoise }), -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		Search({ bg = colors.yellow_dark }), -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+		PmenuThumb{ bg = colors.gray }, -- Popup menu: Thumb of the scrollbar.
+		Question{ fg = colors.turquoise }, -- |hit-enter| prompt and yes/no questions
+		QuickFixLine{ fg = colors.turquoise }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		Search{ bg = colors.yellow_dark }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		-- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		-- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		-- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		-- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-		StatusLine({ fg = colors.fg, bg = colors.bg }), -- Status line of current window
-		StatusLineNC({ bg = colors.gray_dark, fg = colors.fg }), -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		StatusLine{ fg = colors.fg, bg = colors.bg }, -- Status line of current window
+		StatusLineNC{ bg = colors.gray_dark, fg = colors.fg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		-- TabLine        { }, -- Tab pages line, not active tab page label
 		-- TabLineFill    { }, -- Tab pages line, where there are no labels
 		-- TabLineSel     { }, -- Tab pages line, active tab page label
 		-- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-		Visual({ bg = colors.bg2 }), -- Visual mode selection
+		Visual{ bg = colors.bg2 }, -- Visual mode selection
 		-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
-		WarningMsg({ fg = colors.orange, bg = colors.orange_dark }), -- Warning messages
+		WarningMsg{ fg = colors.orange, bg = colors.orange_dark }, -- Warning messages
 		-- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-		Winseparator({ fg = colors.bg2 }), -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+		Winseparator{ fg = colors.bg2 }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 		-- WildMenu       { }, -- Current match in 'wildmenu' completion
-		WinBar({ bg = colors.bg }), -- Window bar of current window
-		WinBarNC({ bg = colors.bg }), -- Window bar of not-current windows
+		WinBar{ bg = colors.bg }, -- Window bar of current window
+		WinBarNC{ bg = colors.bg }, -- Window bar of not-current windows
 
 		-- Common vim syntax groups used for all kinds of code and markup.
 		-- Commented-out groups should chain up to their preferred (*) group
@@ -196,48 +196,48 @@ local theme = lush(function(injected_functions)
 		--
 		-- Uncomment and edit if you want more specific syntax highlighting.
 
-		Comment({ fg = colors.gray, italic = true }), -- Any comment
+		Comment{ fg = colors.gray, italic = true }, -- Any comment
 		--
-		Constant({ fg = colorGroups.group6 }), -- (*) Any constant
-		String({ fg = colorGroups.group7 }), --   A string constant: "this is a string"
+		Constant{ fg = colorGroups.group6 }, -- (*) Any constant
+		String{ fg = colorGroups.group7 }, --   A string constant: "this is a string"
 		-- Character      {  fg = colors.green2 }, --   A character constant: 'c', '\n'
 		-- -- Number         { }, --   A number constant: 234, 0xff
 		-- -- Boolean        { }, --   A boolean constant: TRUE, false
 		-- -- Float          { }, --   A floating point constant: 2.3e10
 		--
-		Identifier({ fg = colorGroups.cyan }), -- (*) Any variable name
-		Function({ fg = colorGroups.group2 }), --   Function name (also: methods for classes)
+		Identifier{ fg = colorGroups.cyan }, -- (*) Any variable name
+		Function{ fg = colorGroups.group2 }, --   Function name (also: methods for classes)
 		--
-		Statement({ fg = colorGroups.group1 }), -- (*) Any statement
+		Statement{ fg = colorGroups.group1 }, -- (*) Any statement
 		-- -- Conditional    { }, --   if, then, else, endif, switch, etc.
 		-- -- Repeat         { }, --   for, do, while, etc.
 		-- -- Label          { }, --   case, default, etc.
-		Operator({ fg = colors.fg }), --   "sizeof", "+", "*", etc.
-		Keyword({ fg = colorGroups.group1 }), --   any other keyword
-		Exception({ fg = colorGroups.group1 }), --   try, catch, throw
+		Operator{ fg = colors.fg }, --   "sizeof", "+", "*", etc.
+		Keyword{ fg = colorGroups.group1 }, --   any other keyword
+		Exception{ fg = colorGroups.group1 }, --   try, catch, throw
 		--
-		PreProc({ fg = colors.fg }), -- (*) Generic Preprocessor
+		PreProc{ fg = colors.fg }, -- (*) Generic Preprocessor
 		-- Include        { }, --   Preprocessor #include
 		-- Define         { }, --   Preprocessor #define
 		-- Macro          { }, --   Same as Define
 		-- -- PreCondit      { }, --   Preprocessor #if, #else, #endif, etc.
 		--
-		Type({ fg = colorGroups.group8 }), -- (*) int, long, char, etc.
+		Type{ fg = colorGroups.group8 }, -- (*) int, long, char, etc.
 		-- -- StorageClass   { }, --   static, register, volatile, etc.
 		-- -- Structure      { }, --   struct, union, enum, etc.
 		-- -- Typedef        { }, --   A typedef
 		--
-		Special({ fg = colorGroups.group2 }), -- (*) Any special symbol
+		Special{ fg = colorGroups.group2 }, -- (*) Any special symbol
 		-- -- SpecialChar    { }, --   Special character in a constant
-		Tag({ fg = colorGroups.group1 }), --   You can use CTRL-] on this
+		Tag{ fg = colorGroups.group1 }, --   You can use CTRL-] on this
 		-- -- Delimiter      { }, --   Character that needs attention
 		-- -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
 		-- -- Debug          { }, --   Debugging statements
 		--
 		-- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
 		-- -- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
-		Error({ fg = colors.red, bg = colors.red_dark }), -- Any erroneous construct
-		Todo({ bg = colors.yellow, fg = colors.bg_dark }), -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Error{ fg = colors.red, bg = colors.red_dark }, -- Any erroneous construct
+		Todo{ bg = colors.yellow, fg = colors.bg_dark }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 		-- These groups are for the native LSP client and diagnostic system. Some
 		-- other LSP clients may use these groups, or use their own. Consult your
@@ -254,11 +254,11 @@ local theme = lush(function(injected_functions)
 
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 		--
-		DiagnosticError({ fg = colors.red, bg = colors.red_dark }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticWarn({ fg = colors.orange, bg = colors.orange_dark }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticInfo({ fg = colors.turquoise, bg = colors.turquoise_dark }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticHint({ fg = colors.cyan, bg = colors.cyan_dark }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticOk({ fg = colors.green, bg = colors.green_dark }), -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticError{ fg = colors.red, bg = colors.red_dark }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticWarn{ fg = colors.orange, bg = colors.orange_dark }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticInfo{ fg = colors.turquoise, bg = colors.turquoise_dark }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticHint{ fg = colors.cyan, bg = colors.cyan_dark }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticOk{ fg = colors.green, bg = colors.green_dark }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		-- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
 		-- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
 		-- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -344,9 +344,9 @@ local theme = lush(function(injected_functions)
 		-- sym"@tag"               { fg = colors.purple }, -- Tag
 
 		-- Additional Diff
-		Removed({ fg = colors.red2, ctermfg = 9 }),
-		Added({ fg = colors.green, ctermfg = 10 }),
-		Changed({ fg = colors.cyan, ctermfg = 14 }),
+		Removed{ fg = colors.red2, ctermfg = 9 },
+		Added{ fg = colors.green, ctermfg = 10 },
+		Changed{ fg = colors.cyan, ctermfg = 14 },
 
 		-- Additional Treesitter and lsp
 		sym("@variable.member")({ fg = colorGroups.group4 }), -- Identifier
@@ -363,10 +363,17 @@ local theme = lush(function(injected_functions)
 		sym("@lsp.type.variable")({ fg = nil }), -- Constant
 
 		-- Lazygit
-		activeBorderColor({ fg = colors.orange }),
+		SnacksPickerDir{fg = colors.gray_dark}
 	}
 end)
 
+local linkingTheme = lush.extends({ theme }).with(function()
+	return {
+		SnacksPicker({theme.Normal}),
+	}
+end)
+
+-- terminal color setup
 vim.g.terminal_color_0 = colors.bg_dark.hex
 vim.g.terminal_color_1 = colors.red.hex
 vim.g.terminal_color_2 = colors.green.hex
@@ -385,6 +392,6 @@ vim.g.terminal_color_14 = colors.cyan.hex
 vim.g.terminal_color_15 = colors.fg.hex
 
 -- Return our parsed theme for extension or use elsewhere.
-return theme
+return linkingTheme
 
 -- vi:nowrap
